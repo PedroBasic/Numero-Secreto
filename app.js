@@ -13,7 +13,6 @@ let tentativas = 0;
 let novoNumSecreto = parseInt(prompt("Digite o limite de número Secreto? "));
 let numeroSecreto = parseInt(Math.random() * novoNumSecreto) + 1;
 
-escolhaNumero = ("Digite um número");
 input.innerHTML = escolhaNumero;
 
 alert('ABRA O CONSOLE PARA VALIDAR SE VOCÊ ACERTOU O NÚMERO SECRETO! TECLA F12 ;)');
@@ -36,16 +35,19 @@ function jogar(){
 }
 
 
+
 function verificarChute(){
     
-    if (jogar() > novoNumSecreto){
+    jogar();
+
+    if (escolhaNumero > novoNumSecreto){
         console.log('Ultrapassou o limite de número. Tente novamente.');
-    }
-    
-    if(escolhaNumero == numeroSecreto){
+
+    }else if(escolhaNumero == numeroSecreto){
         // Armazena no localStorage que o usuário acertou
         localStorage.setItem("acertou", "true");
         window.location.href = "acertou.html";
+
     }else{
         
         if(escolhaNumero > numeroSecreto){
