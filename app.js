@@ -10,16 +10,30 @@ let tentativas = 0;
 
 // innerHTML - > recebe um valor.
 
-let novoNumSecreto = parseInt(prompt("Digite o limite de número Secreto? "));
+let novoNumSecreto = prompt("Digite o limite de número Secreto? ");
 let numeroSecreto = parseInt(Math.random() * novoNumSecreto) + 1;
 
-input.innerHTML = escolhaNumero;
+if(novoNumSecreto == '' && novoNumSecreto == 0){
+    numeroSecreto = Error('Fim');
+    throw new Error('Nenhum valor inserido');
+}else{
+    if(novoNumSecreto == Number){
+        console.log('Continue.');
+    }else{
+        Error('Error')
+    }
+
+}
+
+
+//input.innerHTML = escolhaNumero;
 
 alert('ABRA O CONSOLE PARA VALIDAR SE VOCÊ ACERTOU O NÚMERO SECRETO! TECLA F12 ;)');
 
 titulo.innerHTML = 'Hora do Desafio';
 paragrafo.innerHTML = `Escolha um numero entre 1 e ${novoNumSecreto}?`;
 input.max = novoNumSecreto;
+
 
 
 // Criando função.
@@ -35,13 +49,12 @@ function jogar(){
 }
 
 
-
 function verificarChute(){
     
     jogar();
 
     if (escolhaNumero > novoNumSecreto){
-        console.log('Ultrapassou o limite de número. Tente novamente.');
+        console.log('Ultrapassou o limite do número secreto. Tente novamente.');
 
     }else if(escolhaNumero == numeroSecreto){
         // Armazena no localStorage que o usuário acertou
