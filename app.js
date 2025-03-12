@@ -6,7 +6,7 @@ let paragrafo = document.querySelector('p');
 let input = document.querySelector('.container__input');
 let acertou = document.querySelector('h2');
 let escolhaNumero;
-let tentativas = 0;
+let tentativas = 1;
 
 // innerHTML - > recebe um valor.
 
@@ -20,24 +20,17 @@ if(novoNumSecreto == '' && novoNumSecreto == 0){
     if(novoNumSecreto == Number){
         console.log('Continue.');
     }else{
-        Error('Error')
+        Error('Error');
     }
-
 }
 
 
 //input.innerHTML = escolhaNumero;
-
-alert('ABRA O CONSOLE PARA VALIDAR SE VOCÊ ACERTOU O NÚMERO SECRETO! TECLA F12 ;)');
-
 titulo.innerHTML = 'Hora do Desafio';
 paragrafo.innerHTML = `Escolha um numero entre 1 e ${novoNumSecreto}?`;
 input.max = novoNumSecreto;
 
-
-
 // Criando função.
-
 function jogar(){
     
     // Seleciona o input pelo ID
@@ -48,25 +41,26 @@ function jogar(){
     
 }
 
-
 function verificarChute(){
     
     jogar();
 
     if (escolhaNumero > novoNumSecreto){
-        console.log('Ultrapassou o limite do número secreto. Tente novamente.');
+        alert('Ultrapassou o limite do número secreto. Tente novamente.');
 
     }else if(escolhaNumero == numeroSecreto){
         // Armazena no localStorage que o usuário acertou
-        localStorage.setItem("acertou", "true");
-        window.location.href = "acertou.html";
+        //localStorage.setItem("acertou", "true");
+        //window.location.href = "acertou.html";
+        titulo.innerHTML = `Acertou o número secreto era ${numeroSecreto}!!`;
+        paragrafo.innerHTML = `Número de Tentativas: ${tentativas}`;
 
     }else{
         
         if(escolhaNumero > numeroSecreto){
-            console.log(`O número secreto e menor que ${escolhaNumero}`);
+            titulo.innerHTML = (`O número secreto e menor que ${escolhaNumero}`);
         }else{
-            console.log(`O número secreto e maior que ${escolhaNumero}`);
+            titulo.innerHTML = (`O número secreto e maior que ${escolhaNumero}`);
       }
     }
 

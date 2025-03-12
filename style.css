@@ -146,3 +146,26 @@ button:disabled {
         padding: 1rem
     }
 }
+
+a {
+    display: flex; /* Transforma o link em um botão */
+    background-color: #007BFF; /* Azul vibrante */
+    color: white; /* Texto branco */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 18px; /* Tamanho da fonte */
+    text-decoration: none; /* Remove o sublinhado */
+    border-radius: 8px; /* Bordas arredondadas */
+    transition: 0.3s ease-in-out; /* Efeito suave */
+}
+
+/* Efeito hover (quando o mouse passa por cima) */
+a:hover {
+    background-color: #0056b3; /* Azul mais escuro */
+    transform: scale(1.05); /* Aumenta levemente o botão */
+}
+
+/* Efeito de clique */
+a:active {
+    background-color: #004080; /* Azul mais escuro ainda */
+    transform: scale(0.98); /* Reduz levemente ao clicar */
+}
