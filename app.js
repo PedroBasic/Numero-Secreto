@@ -9,15 +9,14 @@ let escolhaNumero;
 let tentativas = 1;
 
 // innerHTML - > recebe um valor.
-
 let novoNumSecreto = prompt("Digite o limite de número Secreto? ");
 let numeroSecreto = parseInt(Math.random() * novoNumSecreto) + 1;
 
+// Processo de analise do limite de número informado.
 if(novoNumSecreto == '' && novoNumSecreto == 0){
-    numeroSecreto = Error('Fim');
     throw new Error('Nenhum valor inserido');
 }else{
-    if(novoNumSecreto == Number){
+    if(novoNumSecreto == novoNumSecreto){
         console.log('Continue.');
     }else{
         Error('Error');
@@ -58,9 +57,9 @@ function verificarChute(){
     }else{
         
         if(escolhaNumero > numeroSecreto){
-            titulo.innerHTML = (`O número secreto e menor que ${escolhaNumero}`);
+            paragrafo.innerHTML = (`O número secreto e menor que ${escolhaNumero}`);
         }else{
-            titulo.innerHTML = (`O número secreto e maior que ${escolhaNumero}`);
+            paragrafo.innerHTML = (`O número secreto e maior que ${escolhaNumero}`);
       }
     }
 
