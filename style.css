@@ -156,6 +156,16 @@ a {
     text-decoration: none; /* Remove o sublinhado */
     border-radius: 8px; /* Bordas arredondadas */
     transition: 0.3s ease-in-out; /* Efeito suave */
+    border-radius: 16px;
+    background: #1875E8;
+    padding: 16px 24px;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 700;
+    border: none;
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 /* Efeito hover (quando o mouse passa por cima) */
@@ -168,4 +178,20 @@ a:hover {
 a:active {
     background-color: #004080; /* Azul mais escuro ainda */
     transform: scale(0.98); /* Reduz levemente ao clicar */
+}
+
+.a:hover {
+    display: flex;
+    gap: 2em;
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
 }

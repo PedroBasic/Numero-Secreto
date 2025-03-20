@@ -11,12 +11,21 @@
     <title>JS Game</title>
 </head>
     <script>
+        
         // Verifica se o usuário realmente acertou antes de mostrar a mensagem
-        if (localStorage.getItem("acertou") !== "true") {
-            window.location.href = "index.html"; // Se não acertou, volta para o jogo
-        } else {
-            localStorage.removeItem("acertou"); // Remove para não exibir novamente
-        }
+        document.addEventListener("DOMContentLoaded", () => {
+            if (localStorage.getItem("acertou") !== "true") {
+                window.location.href = "index.html";
+            } else {
+                localStorage.removeItem("acertou");
+
+                const tentativa = localStorage.getItem("tentativas");
+                localStorage.removeItem("tentativas");
+
+                document.getElementById('acertou').textContent = "Parabéns, você acertou! 🎉";
+                document.getElementById('tentativas').textContent = `Você acertou o número secreto em ${tentativa} tentativas🏅`;                
+            }
+        });
     </script>
 <body>
     <div class="container">
@@ -25,9 +34,10 @@
             <div class="container__informacoes">
                 <img src=".\img\trophy.png" alt="ícone de um troféu" />
                  <div class="container__texto">
-                    <h1>Você <span class="container__texto-azul">acertou!</span></h1>
-                    <a href="index.html">Jogar novamente</a>
+                    <h1><span class="container__texto-azul" id="acertou"></span></h1>
+                    <p id="tentativas"></p>
                 </div>
+                <a href="index.html">Jogar novamente</a>
             </div>
         </div>
     </div>

@@ -9,20 +9,19 @@ let escolhaNumero;
 let tentativas = 1;
 
 // innerHTML - > recebe um valor.
+alert('Na mensagem a seguir você deve escolher até quando o número aleatorio vai ser gerado. Exemplo: 0 a X.')
+
 let novoNumSecreto = prompt("Digite o limite de número Secreto? ");
-let numeroSecreto = parseInt(Math.random() * novoNumSecreto) + 1;
+let numeroSecreto;
 
-// Processo de analise do limite de número informado.
-if(novoNumSecreto == '' && novoNumSecreto == 0){
-    throw new Error('Nenhum valor inserido');
-}else{
-    if(novoNumSecreto == novoNumSecreto){
-        console.log('Continue.');
-    }else{
-        Error('Error');
-    }
+// Valida se o usuário colocou um número válido
+if (!novoNumSecreto || isNaN(parseInt(novoNumSecreto)) || parseInt(novoNumSecreto) <= 0) {
+    alert('⚠️ Insira um número válido!');
+    window.location.reload(); // Reinicia o jogo
+} else {
+    novoNumSecreto = parseInt(novoNumSecreto);
+    numeroSecreto = Math.floor(Math.random() * novoNumSecreto) + 1;
 }
-
 
 //input.innerHTML = escolhaNumero;
 titulo.innerHTML = 'Hora do Desafio';
@@ -48,19 +47,22 @@ function verificarChute(){
         alert('Ultrapassou o limite do número secreto. Tente novamente.');
 
     }else if(escolhaNumero == numeroSecreto){
-        // Armazena no localStorage que o usuário acertou
-        //localStorage.setItem("acertou", "true");
-        //window.location.href = "acertou.html";
-        titulo.innerHTML = `Acertou o número secreto era ${numeroSecreto}!!`;
-        paragrafo.innerHTML = `Número de Tentativas: ${tentativas}`;
+        //Armazena no localStorage que o usuário acertou
+
+        localStorage.setItem("acertou", "true");
+        localStorage.setItem("tentativas", tentativas);
+        window.location.href = "acertou.html";  
 
     }else{
+        let dica = escolhaNumero > numeroSecreto
+            ? `O número secreto é menor que ${escolhaNumero}`
+            : `O número secreto é maior que ${escolhaNumero}`;
         
-        if(escolhaNumero > numeroSecreto){
-            paragrafo.innerHTML = (`O número secreto e menor que ${escolhaNumero}`);
-        }else{
-            paragrafo.innerHTML = (`O número secreto e maior que ${escolhaNumero}`);
-      }
+        paragrafo.innerHTML = dica;
+
+        // Efeito de tremer para indicar erro
+        paragrafo.classList.add('shake');
+        setTimeout(() => paragrafo.classList.remove('shake'), 500);
     }
 
     // Abaixo utilizamos o '++'  para contabilizar toda vez que for tentado um número.

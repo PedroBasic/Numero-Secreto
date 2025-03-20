@@ -111,3 +111,18 @@ h2 {
     font-weight: 400;
 }
 
+#acertou {
+    color: #4CAF50;
+    font-size: 2rem;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+p {
+    font-size: 1.2rem;
+    color: #1875E8;
+}
