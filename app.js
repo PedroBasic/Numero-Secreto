@@ -36,6 +36,7 @@ function jogar(){
     
     // Obtém o valor e converte para número
     escolhaNumero = Number(inputNumero.value);
+    inputNumero.value = '';
     
 }
 
