@@ -36,7 +36,7 @@ function jogar(){
     
     // Obtém o valor e converte para número
     escolhaNumero = Number(inputNumero.value);
-    inputNumero.value = '';
+    inputNumero.value = ''; // Limpa o campo após valor se inserido
     
 }
 
