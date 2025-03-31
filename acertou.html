@@ -23,7 +23,7 @@
                 localStorage.removeItem("tentativas");
 
                 document.getElementById('acertou').textContent = "Parabéns, você acertou! 🎉";
-                document.getElementById('tentativas').textContent = `Você acertou o número secreto em ${tentativa} tentativas🏅`;                
+                document.getElementById('tentativas').textContent = `Você acertou o número secreto em ${tentativa > 1 ? `${tentativa} Tentativas` : `${tentativa} Tentativa`}🏅`;                
             }
         });
     </script>
